@@ -2,6 +2,7 @@
 
 int main()
 {
-    
+    printf("SHREE GANESH....\n");
+
     return 0;
 }
