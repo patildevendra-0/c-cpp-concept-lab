@@ -1,7 +1,16 @@
-// Prime Number Optimized √n trick using math.h inbuilt sqrt() function
+// Prime Number optimise without math.h custom sqrt
+// i * i <= n
+
+// √17 = 4.12
+// म्हणजे i <= 4.12
+// i * i <= 17 म्हणजे:
+// 2*2 = 4  <= 17 ✅ check कर
+// 3*3 = 9  <= 17 ✅ check कर
+// 4*4 = 16 <= 17 ✅ check कर
+// 5*5 = 25 <= 17 ❌ थांब! loop बंद
+
 
 #include <stdio.h>
-#include <math.h>
 
 int Chekc_Prime(int ino)
 {
@@ -23,7 +32,7 @@ int Chekc_Prime(int ino)
     }
 
     int iCnt = 0;
-    for (iCnt = 3; iCnt <= sqrt(ino); iCnt += 2)
+    for (iCnt = 3; iCnt * iCnt <= ino; iCnt += 2)
     {
         if (ino % iCnt == 0)
         {
