@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
+
 class Subscriber
 {
 public:
@@ -35,6 +37,15 @@ public:
         Subscribers.push_back(subscriber);
     }
 
+    void unsuscribeToChannel(Subscriber *sub)
+    {
+        auto it = std::find(Subscribers.begin(), Subscribers.end(), sub);
+        if(it!=Subscribers.end())
+        {
+            Subscribers.erase(it);
+        }
+    }
+
     void notifyAllSubscriber(std::string message)
     {
         for (Subscriber *subscriber : Subscribers)
@@ -55,6 +66,8 @@ int main()
     youtubeChannel.suscribeToChannel(&dinesh);
 
     youtubeChannel.notifyAllSubscriber("NEW VIDEO...\n");
+
+    youtubeChannel.unsuscribeToChannel(&suresh);
 
     return 0;
 }
